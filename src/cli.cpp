@@ -147,11 +147,16 @@ int main(int argc, char *argv[]) {
   std::cout << std::fixed << std::setprecision(6);
   std::cout << "  Price:  " << std::setw(12) << result.price << "  (+/- "
             << result.priceStd << ")" << std::endl;
-  std::cout << "  Delta:  " << std::setw(12) << result.delta << std::endl;
-  std::cout << "  Gamma:  " << std::setw(12) << result.gamma << std::endl;
-  std::cout << "  Theta:  " << std::setw(12) << result.theta << std::endl;
-  std::cout << "  Rho:    " << std::setw(12) << result.rho << std::endl;
-  std::cout << "  Vega:   " << std::setw(12) << result.vega << std::endl;
+  std::cout << "  Delta:  " << std::setw(12) << result.delta << "  (+/- "
+            << result.deltaStd << ")" << std::endl;
+  std::cout << "  Gamma:  " << std::setw(12) << result.gamma << "  (+/- "
+            << result.gammaStd << ")" << std::endl;
+  std::cout << "  Theta:  " << std::setw(12) << result.theta << "  (+/- "
+            << result.thetaStd << ")" << std::endl;
+  std::cout << "  Rho:    " << std::setw(12) << result.rho << "  (+/- "
+            << result.rhoStd << ")" << std::endl;
+  std::cout << "  Vega:   " << std::setw(12) << result.vega << "  (+/- "
+            << result.vegaStd << ")" << std::endl;
   std::cout << "--------------------------------------" << std::endl;
 
   std::cout << std::endl;

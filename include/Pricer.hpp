@@ -5,6 +5,8 @@
 #include "MonteCarloSimulator.hpp"
 #include "OptionParameters.hpp"
 
+#include <vector>
+
 struct PriceAndDelta {
   double price;
   double priceStd;
@@ -16,11 +18,16 @@ struct PricingResult {
       price; // V = S(T) - min S(t) or max S(t) - S(T) depending on Call / Put
   double priceStd;
   double delta; // \partial V / \partial S
+  double deltaStd;
   double gamma; // \partial2 V / \partial S2
+  double gammaStd;
   double
       theta;  // - \partial V / \partial T (up to sign depending on conventions)
+  double thetaStd;
   double rho; // \partial V / \partial r
+  double rhoStd;
   double vega; // \partia V / \partial \sigma
+  double vegaStd;
 };
 
 class PricerLookbackOption {
@@ -38,7 +45,9 @@ private:
   // Helper to compute raw price from simulations, private as it is used
   // internally for Greeks computation
   double computeRawPrice(double spot, double rate, double volatility,
-                         double maturity, double &stdError, unsigned int seed);
+                         double maturity, double &stdError, unsigned int seed,
+                         std::vector<double> &values,
+                         bool storeValues = false);
 
 public:
   PricerLookbackOption();
