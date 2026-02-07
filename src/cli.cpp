@@ -1,4 +1,6 @@
+#include "../include/AnalyticLookback.hpp"
 #include "../include/Pricer.hpp"
+
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
@@ -151,6 +153,27 @@ int main(int argc, char *argv[]) {
   std::cout << "  Rho:    " << std::setw(12) << result.rho << std::endl;
   std::cout << "  Vega:   " << std::setw(12) << result.vega << std::endl;
   std::cout << "--------------------------------------" << std::endl;
+
+  std::cout << std::endl;
+  std::cout << "Analytic Solution (for reference):" << std::endl;
+  double analyticPrice =
+      LookbackAnalyticSolution::price(type, spot, maturity, volatility, rate);
+  std::cout << "  Price:  " << std::setw(12) << analyticPrice << std::endl;
+  double analyticDelta =
+      LookbackAnalyticSolution::delta(type, spot, maturity, volatility, rate);
+  std::cout << "  Delta:  " << std::setw(12) << analyticDelta << std::endl;
+  double analyticGamma =
+      LookbackAnalyticSolution::gamma(type, spot, maturity, volatility, rate);
+  std::cout << "  Gamma:  " << std::setw(12) << analyticGamma << std::endl;
+  double analyticTheta =
+      LookbackAnalyticSolution::theta(type, spot, maturity, volatility, rate);
+  std::cout << "  Theta:  " << std::setw(12) << analyticTheta << std::endl;
+  double analyticRho =
+      LookbackAnalyticSolution::rho(type, spot, maturity, volatility, rate);
+  std::cout << "  Rho:    " << std::setw(12) << analyticRho << std::endl;
+  double analyticVega =
+      LookbackAnalyticSolution::vega(type, spot, maturity, volatility, rate);
+  std::cout << "  Vega:   " << std::setw(12) << analyticVega << std::endl;
 
   return 0;
 }
