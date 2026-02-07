@@ -114,7 +114,7 @@ PricingResult PricerLookbackOption::compute() {
                  (MarketParameters_.getSpot() * MarketParameters_.getSpot() *
                   SPOT_BUMP * SPOT_BUMP);
 
-  // Theta = -dV/dT ~ (V(T+dt) - V(T-dt)) / (2*dt)
+  // Theta = -dV/dT ~ -(V(T+dt) - V(T-dt)) / (2*dt)
   double priceForward = computeRawPrice(
       MarketParameters_.getSpot(), MarketParameters_.gtetRiskFreeRate(),
       MarketParameters_.getVolatility(), option_.getMaturity() + TIME_BUMP,
