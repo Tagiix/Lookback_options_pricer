@@ -29,6 +29,7 @@ public:
 
   unsigned long getNumSimulations() const;
   unsigned long getNumTimeSteps() const;
+  unsigned int getRandomSeed() const;
 
   SpotResults simulateSinglePath(double initialSpot, double rate,
                                  double volatility,

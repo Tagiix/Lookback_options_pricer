@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <chrono>
 #include <cmath>
+#include <random>
 
 // for random number generation, we used some code from
 // https://www.learncpp.com/cpp-tutorial/global-random-numbers-random-h/
@@ -40,6 +41,10 @@ MonteCarloSimulator::MonteCarloSimulator(unsigned long numSimulations,
     rng_.seed(seed);
   }
 }
+unsigned int MonteCarloSimulator::getRandomSeed() const {
+  return static_cast<unsigned int>(
+      std::chrono::steady_clock::now().time_since_epoch().count());
+}
 
 void MonteCarloSimulator::setNumSimulations(unsigned long numSimulations) {
   numSimulations_ = numSimulations;
@@ -50,11 +55,7 @@ void MonteCarloSimulator::setNumTimeSteps(unsigned long numTimeSteps) {
 }
 
 void MonteCarloSimulator::setRandomSeed(unsigned int seed) {
-  if (seed == 0) {
-    rng_ = Random::generate();
-  } else {
     rng_.seed(seed);
-  }
 }
 
 unsigned long MonteCarloSimulator::getNumSimulations() const {
