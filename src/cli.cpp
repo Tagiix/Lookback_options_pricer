@@ -119,7 +119,7 @@ int main(int argc, char *argv[]) {
   // Create pricer and compute
   PricerLookbackOption pricer;
   pricer.setOption(type, maturity);
-  pricer.setMarketParameters(spot, volatility, rate);
+  pricer.setMarketParameters(spot, rate, volatility);
   pricer.setMonteCarloSimulator(numSims, numSteps, seed);
 
   std::cout << "======================================" << std::endl;

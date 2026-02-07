@@ -6,12 +6,12 @@
 #define M_PI 3.14159265358979323846
 #endif
 
-#ifndef M_SQRT2
-#define M_SQRT2 0.70710678118654752440
+#ifndef M_SQRT1_2
+#define M_SQRT1_2 0.70710678118654752440
 #endif
 
 double LookbackAnalyticSolution::normalCDF(double x) {
-  return 0.5 * std::erfc(-x * M_SQRT2);
+  return 0.5 * std::erfc(-x * M_SQRT1_2);
   // see https://en.cppreference.com/w/cpp/numeric/math/erfc.html
 }
 
@@ -48,7 +48,7 @@ double LookbackAnalyticSolution::price(OptionType option, double S0, double T,
         normalCDF(-delta_p) * S0 * (sigma * sigma / (2.0 * r));
     return V_discounted;
   } else { // Put
-    return S0 * std::exp(-r * T) * normalCDF(-delta_m) -
+    return S0 * std::exp(-r * T) * normalCDF(-delta_m) +
            S0 * normalCDF(delta_p) * (1 + (sigma * sigma) / (2 * r)) -
            std::exp(-r * T) * S0 * (sigma * sigma / (2.0 * r)) *
                normalCDF(-delta_m) -
