@@ -54,8 +54,9 @@ const MonteCarloSimulator &PricerLookbackOption::getSimulator() const {
 // from the same function
 double PricerLookbackOption::computeRawPrice(double spot, double rate,
                                              double volatility, double maturity,
-                                             double &stdError, unsigned int seed) {
-   simulator_.setRandomSeed(seed);                                           
+                                             double &stdError,
+                                             unsigned int seed) {
+  simulator_.setRandomSeed(seed);
   // Simulate paths
   auto paths = simulator_.simulatePaths(spot, rate, volatility, maturity);
   // Compute payoffs
@@ -98,13 +99,13 @@ PricingResult PricerLookbackOption::compute() {
   // Compute price and standard error for the base parameters
   result.price = computeRawPrice(
       MarketParameters_.getSpot(), MarketParameters_.gtetRiskFreeRate(),
-      MarketParameters_.getVolatility(), option_.getMaturity(), stdError,seed);
+      MarketParameters_.getVolatility(), option_.getMaturity(), stdError, seed);
   result.priceStd = stdError;
 
   // Compute Greeks using finite differences
 
   // Delta = dV/dS ~ (V(S+ds) - V(S-ds)) / (2*ds)
- // Reset seed to ensure same paths
+  // Reset seed to ensure same paths
   double priceUp = computeRawPrice(
       MarketParameters_.getSpot() * (1 + SPOT_BUMP),
       MarketParameters_.gtetRiskFreeRate(), MarketParameters_.getVolatility(),
@@ -122,59 +123,62 @@ PricingResult PricerLookbackOption::compute() {
                  (MarketParameters_.getSpot() * MarketParameters_.getSpot() *
                   SPOT_BUMP * SPOT_BUMP);
 
-  // Theta = -dV/dT ~ -(V(T+dt) - V(T-dt)) / (2*dt)
+  // Theta = dV/dT ~ (V(T+dt) - V(T-dt)) / (2*dt) sometimes it is defined as
+  // -dV/dT, but in the project description it is defined as the oposite, so we
+  // will follow the project description
   double priceForward = computeRawPrice(
       MarketParameters_.getSpot(), MarketParameters_.gtetRiskFreeRate(),
       MarketParameters_.getVolatility(), option_.getMaturity() + TIME_BUMP,
-      stdError,seed);
+      stdError, seed);
 
   double priceBackward = computeRawPrice(
       MarketParameters_.getSpot(), MarketParameters_.gtetRiskFreeRate(),
       MarketParameters_.getVolatility(), option_.getMaturity() - TIME_BUMP,
-      stdError,seed);
-  result.theta = (priceBackward - priceForward) / (2 * TIME_BUMP);
+      stdError, seed);
+  result.theta = (priceForward - priceBackward) / (2 * TIME_BUMP);
 
   // Rho = dV/dr ~ (V(r+dr) - V(r-dr)) / (2*dr)
   double priceUpRate = computeRawPrice(
       MarketParameters_.getSpot(),
       MarketParameters_.gtetRiskFreeRate() + RATE_BUMP,
-      MarketParameters_.getVolatility(), option_.getMaturity(), stdError,seed);
+      MarketParameters_.getVolatility(), option_.getMaturity(), stdError, seed);
 
   double priceDownRate = computeRawPrice(
       MarketParameters_.getSpot(),
       MarketParameters_.gtetRiskFreeRate() - RATE_BUMP,
-      MarketParameters_.getVolatility(), option_.getMaturity(), stdError,seed);
+      MarketParameters_.getVolatility(), option_.getMaturity(), stdError, seed);
   result.rho = (priceUpRate - priceDownRate) / (2 * RATE_BUMP);
 
   // Vega = dV/dsigma ~ (V(sigma+dv) - V(sigma-dv)) / (2*dv)
 
   double priceUpVol = computeRawPrice(
       MarketParameters_.getSpot(), MarketParameters_.gtetRiskFreeRate(),
-      MarketParameters_.getVolatility() * (1.0+ VOL_BUMP), option_.getMaturity(),
-      stdError,seed);
+      MarketParameters_.getVolatility() * (1.0 + VOL_BUMP),
+      option_.getMaturity(), stdError, seed);
   double priceDownVol = computeRawPrice(
       MarketParameters_.getSpot(), MarketParameters_.gtetRiskFreeRate(),
-      MarketParameters_.getVolatility() *(1.0- VOL_BUMP), option_.getMaturity(),
-      stdError,seed);
-  result.vega = (priceUpVol - priceDownVol) / (2 * MarketParameters_.getVolatility() * VOL_BUMP);
+      MarketParameters_.getVolatility() * (1.0 - VOL_BUMP),
+      option_.getMaturity(), stdError, seed);
+  result.vega = (priceUpVol - priceDownVol) /
+                (2 * MarketParameters_.getVolatility() * VOL_BUMP);
 
   return result;
 }
 
 PriceAndDelta PricerLookbackOption::priceAndDeltaForSpot(double spot) {
-    unsigned int seed = simulator_.getRandomSeed();
+  unsigned int seed = simulator_.getRandomSeed();
   double stdError;
   double price = computeRawPrice(spot, MarketParameters_.gtetRiskFreeRate(),
                                  MarketParameters_.getVolatility(),
-                                 option_.getMaturity(), stdError,seed);
+                                 option_.getMaturity(), stdError, seed);
   double error = stdError;
   // Compute Delta using finite difference
   double priceUp = computeRawPrice(
       spot * (1 + SPOT_BUMP), MarketParameters_.gtetRiskFreeRate(),
-      MarketParameters_.getVolatility(), option_.getMaturity(), stdError,seed);
+      MarketParameters_.getVolatility(), option_.getMaturity(), stdError, seed);
   double priceDown = computeRawPrice(
       spot * (1 - SPOT_BUMP), MarketParameters_.gtetRiskFreeRate(),
-      MarketParameters_.getVolatility(), option_.getMaturity(), stdError,seed);
+      MarketParameters_.getVolatility(), option_.getMaturity(), stdError, seed);
   double delta = (priceUp - priceDown) / (2 * spot * SPOT_BUMP);
   return {price, error, delta};
 }
