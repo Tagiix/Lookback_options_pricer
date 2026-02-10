@@ -1,0 +1,14 @@
+<map id="include/Pricer.hpp" name="include/Pricer.hpp">
+<area shape="rect" id="Node000001" title="Main pricing engine for floating&#45;strike lookback options using Monte Carlo simulation with finite&#45;dif..." alt="" coords="288,5,424,33"/>
+<area shape="rect" id="Node000002" href="$MarketParameters_8hpp.html" title="Class for market data used for option pricing." alt="" coords="5,81,174,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="307,36,152,79,151,74,310,31"/>
+<area shape="rect" id="Node000003" href="$MonteCarloSimulator_8hpp.html" title="Monte Carlo simulation engine for generating spot&#45;price paths." alt="" coords="198,81,384,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="347,32,314,72,311,67,342,35"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="370,157,433,184"/>
+<area shape="poly" id="edge6_Node000001_Node000005" title=" " alt="" coords="368,31,385,53,399,80,405,111,406,143,401,140,400,112,394,82,381,56,367,36"/>
+<area shape="rect" id="Node000006" href="$OptionParameters_8hpp.html" title="Defines the lookback option type and its payoff logic." alt="" coords="458,81,625,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="390,31,497,75,492,75,389,36"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="255,157,326,184"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="293,107,293,142,289,139,289,111"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="311,107,372,148,367,148,310,112"/>
+</map>

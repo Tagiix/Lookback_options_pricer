@@ -1,0 +1,7 @@
+<map id="computeStdError" name="computeStdError">
+<area shape="rect" id="Node000001" title="Compute the standard error of the mean from a sample of values." alt="" coords="319,14,449,42"/>
+<area shape="rect" id="Node000002" href="$classPricerLookbackOption.html#a7516d31bd6b6291c72444d96bbaa21c7" title="Price the option and compute all Greeks via Monte Carlo." alt="" coords="108,5,271,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="301,28,272,30,271,25,306,28"/>
+<area shape="rect" id="Node000003" href="$cli_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Entry point for the lookback option pricer CLI." alt="" coords="5,14,60,42"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="90,29,60,30,60,25,95,27"/>
+</map>

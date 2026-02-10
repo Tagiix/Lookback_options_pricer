@@ -1,0 +1,5 @@
+<map id="PricerLookbackOption::setMarketParameters" name="PricerLookbackOption::setMarketParameters">
+<area shape="rect" id="Node000001" title="Set market parameters from an existing object." alt="" coords="108,5,276,50"/>
+<area shape="rect" id="Node000002" href="$cli_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Entry point for the lookback option pricer CLI." alt="" coords="5,14,60,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="90,29,60,30,60,25,95,27"/>
+</map>

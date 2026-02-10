@@ -1,0 +1,9 @@
+<map id="src/OptionParameters.cpp" name="src/OptionParameters.cpp">
+<area shape="rect" id="Node000001" title="Implementation of the LookbackOption class." alt="" coords="207,5,396,33"/>
+<area shape="rect" id="Node000002" href="$OptionParameters_8hpp.html" title="Defines the lookback option type and its payoff logic." alt="" coords="5,81,235,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,33,167,77,165,72,266,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="259,81,344,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="303,32,304,67,299,64,299,35"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="368,81,453,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="322,31,381,72,376,72,320,36"/>
+</map>

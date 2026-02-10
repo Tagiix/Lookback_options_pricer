@@ -1,0 +1,9 @@
+<map id="include/Pricer.hpp" name="include/Pricer.hpp">
+<area shape="rect" id="Node000001" title="Main pricing engine for floating&#45;strike lookback options using Monte Carlo simulation with finite&#45;dif..." alt="" coords="112,5,248,33"/>
+<area shape="rect" id="Node000002" href="$Pricer_8cpp.html" title="Implementation of the PricerLookbackOption class." alt="" coords="5,81,113,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,42,82,83,79,78,143,41"/>
+<area shape="rect" id="Node000003" href="$cli_8cpp.html" title="Command&#45;line interface for the lookback option pricer." alt="" coords="137,81,224,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,47,183,82,178,79,178,51"/>
+<area shape="rect" id="Node000004" href="$graph_8cpp.html" title="Generates Price(S) and Delta(S) graphs for lookback options." alt="" coords="248,81,356,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="216,39,283,80,277,81,214,44"/>
+</map>

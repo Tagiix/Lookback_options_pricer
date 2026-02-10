@@ -1,0 +1,19 @@
+<map id="include/OptionParameters.hpp" name="include/OptionParameters.hpp">
+<area shape="rect" id="Node000001" title="Defines the lookback option type and its payoff logic." alt="" coords="310,5,527,33"/>
+<area shape="rect" id="Node000002" href="$AnalyticLookback_8hpp.html" title="Closed&#45;form pricing and Greeks for floating&#45;strike lookback options. Most of the code is based on the..." alt="" coords="111,81,326,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="366,40,255,83,253,78,371,38"/>
+<area shape="rect" id="Node000006" href="$Pricer_8hpp.html" title="Main pricing engine for floating&#45;strike lookback options using Monte Carlo simulation with finite&#45;dif..." alt="" coords="350,81,487,109"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="420,47,421,82,416,79,417,51"/>
+<area shape="rect" id="Node000008" href="$OptionParameters_8cpp.html" title="Implementation of the LookbackOption class." alt="" coords="511,81,699,109"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="466,36,575,80,569,81,465,42"/>
+<area shape="rect" id="Node000003" href="$AnalyticLookback_8cpp.html" title="Implementation of the LookbackAnalyticSolution class." alt="" coords="5,157,192,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="187,117,121,159,119,154,182,117"/>
+<area shape="rect" id="Node000004" href="$cli_8cpp.html" title="Command&#45;line interface for the lookback option pricer." alt="" coords="215,157,302,184"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="234,120,254,157,249,155,232,125"/>
+<area shape="rect" id="Node000005" href="$graph_8cpp.html" title="Generates Price(S) and Delta(S) graphs for lookback options." alt="" coords="326,157,434,184"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="262,113,354,156,349,156,260,118"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="379,115,288,159,286,154,373,116"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="407,121,388,158,385,154,402,124"/>
+<area shape="rect" id="Node000007" href="$Pricer_8cpp.html" title="Implementation of the PricerLookbackOption class." alt="" coords="458,157,566,184"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="448,116,498,157,493,156,446,121"/>
+</map>

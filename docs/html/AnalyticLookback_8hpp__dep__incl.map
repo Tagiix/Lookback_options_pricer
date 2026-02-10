@@ -1,0 +1,9 @@
+<map id="include/AnalyticLookback.hpp" name="include/AnalyticLookback.hpp">
+<area shape="rect" id="Node000001" title="Closed&#45;form pricing and Greeks for floating&#45;strike lookback options. Most of the code is based on the..." alt="" coords="151,5,366,33"/>
+<area shape="rect" id="Node000002" href="$AnalyticLookback_8cpp.html" title="Implementation of the LookbackAnalyticSolution class." alt="" coords="5,81,192,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="219,40,128,83,126,78,213,40"/>
+<area shape="rect" id="Node000003" href="$cli_8cpp.html" title="Command&#45;line interface for the lookback option pricer." alt="" coords="215,81,302,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="260,47,261,82,256,79,257,51"/>
+<area shape="rect" id="Node000004" href="$graph_8cpp.html" title="Generates Price(S) and Delta(S) graphs for lookback options." alt="" coords="326,81,434,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="294,39,361,81,356,80,292,44"/>
+</map>

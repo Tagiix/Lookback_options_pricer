@@ -1,0 +1,11 @@
+<map id="src/AnalyticLookback.cpp" name="src/AnalyticLookback.cpp">
+<area shape="rect" id="Node000001" title="Implementation of the LookbackAnalyticSolution class." alt="" coords="198,5,384,33"/>
+<area shape="rect" id="Node000002" href="$AnalyticLookback_8hpp.html" title="Closed&#45;form pricing and Greeks for floating&#45;strike lookback options. Most of the code is based on the..." alt="" coords="5,81,233,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="258,35,165,77,162,72,262,32"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="257,81,325,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="293,31,293,67,289,64,289,36"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="349,81,412,109"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="308,31,355,71,350,71,306,36"/>
+<area shape="rect" id="Node000003" href="$OptionParameters_8hpp.html" title="Defines the lookback option type and its payoff logic." alt="" coords="36,157,202,184"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="121,107,121,142,117,140,117,111"/>
+</map>

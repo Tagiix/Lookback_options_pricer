@@ -1,0 +1,11 @@
+<map id="LookbackAnalyticSolution::vega" name="LookbackAnalyticSolution::vega">
+<area shape="rect" id="Node000001" title="Compute Vega ( ) via finite difference." alt="" coords="5,75,195,119"/>
+<area shape="rect" id="Node000002" href="$classLookbackAnalyticSolution.html#af1353323577d1f6b8c381e5e2385a573" title="Compute the analytic price of a floating&#45;strike lookback option." alt="" coords="243,75,432,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,94,230,96,224,98,196,100"/>
+<area shape="rect" id="Node000003" href="$classLookbackAnalyticSolution.html#aa258352585231529a95d4062bfd2665e" title="Compute &#160;." alt="" coords="480,5,669,50"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="415,72,478,56,483,54,417,77"/>
+<area shape="rect" id="Node000004" href="$classLookbackAnalyticSolution.html#ad1a901bb976ec30870a2ae1ff62f7989" title="Compute &#160;." alt="" coords="480,75,669,119"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="432,94,467,97,462,97,433,100"/>
+<area shape="rect" id="Node000005" href="$classLookbackAnalyticSolution.html#abc1877c1557ae9737d8253ae44f2682a" title="Standard normal cumulative distribution function ." alt="" coords="480,144,669,189"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="416,117,484,139,478,139,416,123"/>
+</map>
