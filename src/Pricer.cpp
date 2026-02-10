@@ -213,21 +213,17 @@ PricingResult PricerLookbackOption::compute(bool withGreekStdErrors) {
       (priceAfter - priceBefore) / (2 * option_.getMaturity() * TIME_BUMP);
 
   // Rho = dV/dr ~ (V(r+dr) - V(r-dr)) / (2*dr)
-  double priceRateUp =
-      computeRawPrice(MarketParameters_.getSpot(),
-                      MarketParameters_.gtetRiskFreeRate() * (1.0 + RATE_BUMP),
-                      MarketParameters_.getVolatility(), option_.getMaturity(),
-                      stdError, seed,
-                      withGreekStdErrors ? upRateValues : unused,
-                      withGreekStdErrors);
+  double priceRateUp = computeRawPrice(
+      MarketParameters_.getSpot(),
+      MarketParameters_.gtetRiskFreeRate() * (1.0 + RATE_BUMP),
+      MarketParameters_.getVolatility(), option_.getMaturity(), stdError, seed,
+      withGreekStdErrors ? upRateValues : unused, withGreekStdErrors);
 
-  double priceRateDown =
-      computeRawPrice(MarketParameters_.getSpot(),
-                      MarketParameters_.gtetRiskFreeRate() * (1.0 - RATE_BUMP),
-                      MarketParameters_.getVolatility(), option_.getMaturity(),
-                      stdError, seed,
-                      withGreekStdErrors ? downRateValues : unused,
-                      withGreekStdErrors);
+  double priceRateDown = computeRawPrice(
+      MarketParameters_.getSpot(),
+      MarketParameters_.gtetRiskFreeRate() * (1.0 - RATE_BUMP),
+      MarketParameters_.getVolatility(), option_.getMaturity(), stdError, seed,
+      withGreekStdErrors ? downRateValues : unused, withGreekStdErrors);
 
   result.rho = (priceRateUp - priceRateDown) /
                (2 * RATE_BUMP * MarketParameters_.gtetRiskFreeRate());
@@ -261,15 +257,13 @@ PricingResult PricerLookbackOption::compute(bool withGreekStdErrors) {
 
     // Rho std error
     for (size_t i = 0; i < N; ++i) {
-      greekPerSim[i] =
-          (upRateValues[i] - downRateValues[i]) / (2 * RATE_BUMP);
+      greekPerSim[i] = (upRateValues[i] - downRateValues[i]) / (2 * RATE_BUMP);
     }
     result.rhoStd = computeStdError(greekPerSim);
 
     // Vega std error
     for (size_t i = 0; i < N; ++i) {
-      greekPerSim[i] =
-          (upVolValues[i] - downVolValues[i]) / (2 * volBumpAbs);
+      greekPerSim[i] = (upVolValues[i] - downVolValues[i]) / (2 * volBumpAbs);
     }
     result.vegaStd = computeStdError(greekPerSim);
   } else {
@@ -285,19 +279,20 @@ PriceAndDelta PricerLookbackOption::priceAndDeltaForSpot(double spot) {
   unsigned int seed = simulator_.getRandomSeed();
   double stdError;
   std::vector<double> unused;
-  double price = computeRawPrice(spot, MarketParameters_.gtetRiskFreeRate(),
-                                 MarketParameters_.getVolatility(),
-                                 option_.getMaturity(), stdError, seed, unused);
+  double price =
+      computeRawPrice(spot, MarketParameters_.gtetRiskFreeRate(),
+                      MarketParameters_.getVolatility(), option_.getMaturity(),
+                      stdError, seed, unused, false);
   double error = stdError;
   // Compute Delta using finite difference
   double priceUp = computeRawPrice(
       spot * (1 + SPOT_BUMP), MarketParameters_.gtetRiskFreeRate(),
       MarketParameters_.getVolatility(), option_.getMaturity(), stdError, seed,
-      unused);
+      unused, false);
   double priceDown = computeRawPrice(
       spot * (1 - SPOT_BUMP), MarketParameters_.gtetRiskFreeRate(),
       MarketParameters_.getVolatility(), option_.getMaturity(), stdError, seed,
-      unused);
+      unused, false);
   double delta = (priceUp - priceDown) / (2 * spot * SPOT_BUMP);
   return {price, error, delta};
 }
