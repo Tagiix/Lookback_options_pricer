@@ -1,0 +1,30 @@
+# Doxyfile for pricer_lookback
+
+PROJECT_NAME           = "Lookback Option Pricer"
+PROJECT_BRIEF          = "Monte Carlo & analytic pricing of floating-strike lookback options"
+OUTPUT_DIRECTORY       = docs
+INPUT                  = include src
+FILE_PATTERNS          = *.hpp *.cpp
+RECURSIVE              = YES
+
+# Extract everything, including private members
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+
+# Enable LaTeX formula rendering in HTML (requires latex + dvipng or mathjax)
+USE_MATHJAX            = YES
+
+# Generate HTML, skip LaTeX PDF
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+
+# Source browsing
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+
+# Graphs (requires the 'dot' tool from graphviz)
+HAVE_DOT               = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+CLASS_GRAPH            = YES
