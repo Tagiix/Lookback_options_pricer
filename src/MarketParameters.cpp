@@ -1,3 +1,8 @@
+/**
+ * @file MarketParameters.cpp
+ * @brief Implementation of the MarketParameters class.
+ */
+
 #include "../include/MarketParameters.hpp"
 #include <stdexcept>
 

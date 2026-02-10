@@ -1,11 +1,22 @@
+/**
+ * @file MonteCarloSimulator.cpp
+ * @brief Implementation of the MonteCarloSimulator class and RNG helpers.
+ */
+
 #include "../include/MonteCarloSimulator.hpp"
 #include <algorithm>
 #include <chrono>
 #include <cmath>
 #include <random>
 
-// for random number generation, we used some code from
-// https://www.learncpp.com/cpp-tutorial/global-random-numbers-random-h/
+/**
+ * @namespace Random
+ * @brief Helper namespace for seeding the Mersenne Twister PRNG.
+ *
+ * Seed generation uses the system clock combined with several
+ * std::random_device draws for improved entropy.
+ * @see https://www.learncpp.com/cpp-tutorial/global-random-numbers-random-h/
+ */
 namespace Random {
 inline std::mt19937 generate() {
   std::random_device rd{};

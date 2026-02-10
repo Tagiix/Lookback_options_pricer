@@ -1,3 +1,11 @@
+/**
+ * @file AnalyticLookback.cpp
+ * @brief Implementation of the LookbackAnalyticSolution class.
+ *
+ * Contains closed-form pricing for floating-strike lookback options and
+ * finite-difference Greeks computed from the analytic price.
+ */
+
 #include "../include/AnalyticLookback.hpp"
 #include <cassert>
 #include <cmath>

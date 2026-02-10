@@ -1,3 +1,12 @@
+/**
+ * @file graph.cpp
+ * @brief Generates Price(S) and Delta(S) graphs for lookback options.
+ *
+ * Sweeps the spot price over a user-defined range, evaluates the Monte Carlo
+ * pricer (and optionally the analytic solution) at each point, writes the
+ * results to a CSV file, and (when gnuplot is available) produces PNG plots.
+ */
+
 #include "../include/AnalyticLookback.hpp"
 #include "../include/Pricer.hpp"
 
@@ -10,13 +19,17 @@
 #include <vector>
 
 #ifdef _WIN32
-#define POPEN _popen
-#define PCLOSE _pclose
+#define POPEN _popen  ///< Platform-agnostic popen alias (Windows).
+#define PCLOSE _pclose ///< Platform-agnostic pclose alias (Windows).
 #else
-#define POPEN popen
-#define PCLOSE pclose
+#define POPEN popen   ///< Platform-agnostic popen alias (POSIX).
+#define PCLOSE pclose ///< Platform-agnostic pclose alias (POSIX).
 #endif
 
+/**
+ * @brief Print usage / help message to stdout.
+ * @param programName The name of the executable (argv[0]).
+ */
 void printUsage(const char *programName) {
   std::cout << "Usage: " << programName << " [options]" << std::endl;
   std::cout << std::endl;
@@ -49,6 +62,16 @@ void printUsage(const char *programName) {
   std::cout << "  -h, --help        Show this help message" << std::endl;
 }
 
+/**
+ * @brief Entry point for the graph generation tool.
+ *
+ * Parses CLI arguments, sweeps spot price, and outputs CSV (plus optional
+ * PNG plots via gnuplot) of Price(S) and Delta(S).
+ *
+ * @param argc Argument count.
+ * @param argv Argument vector.
+ * @return 0 on success, 1 on invalid input.
+ */
 int main(int argc, char *argv[]) {
   OptionType type = OptionType::Call;
   double maturity = 1.0;

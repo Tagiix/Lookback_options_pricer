@@ -1,3 +1,12 @@
+/**
+ * @file cli.cpp
+ * @brief Command-line interface for the lookback option pricer.
+ *
+ * Parses user-supplied market and simulation parameters, prices a
+ * floating-strike lookback option via Monte Carlo, and prints the
+ * results alongside the analytic solution for comparison.
+ */
+
 #include "../include/AnalyticLookback.hpp"
 #include "../include/Pricer.hpp"
 
@@ -8,6 +17,10 @@
 #include <sstream>
 #include <string>
 
+/**
+ * @brief Print usage / help message to stdout.
+ * @param programName The name of the executable (argv[0]).
+ */
 void printUsage(const char *programName) {
   std::cout << "Usage: " << programName << " [options]" << std::endl;
   std::cout << std::endl;
@@ -43,6 +56,12 @@ void printUsage(const char *programName) {
   std::cout //
       << "  --seed NUM            Random seed (default: 0 = random)"
       << std::endl;
+  std::cout //
+      << "  --std_error           Compute standard errors for Greeks"
+      << std::endl;
+  std::cout //
+      << "                        (slower, more memory; off by default)"
+      << std::endl;
   std::cout << "  -h, --help            Show this help message" << std::endl;
   std::cout << std::endl;
   std::cout << "Example:" << std::endl;
@@ -51,6 +70,17 @@ void printUsage(const char *programName) {
             << std::endl;
 }
 
+/**
+ * @brief Entry point for the lookback option pricer CLI.
+ *
+ * Accepts command-line arguments for option type, market parameters, and
+ * Monte Carlo settings. Outputs Monte Carlo price/Greeks and the
+ * corresponding analytic solution.
+ *
+ * @param argc Argument count.
+ * @param argv Argument vector.
+ * @return 0 on success, 1 on invalid input.
+ */
 int main(int argc, char *argv[]) {
   // Default parameters
   OptionType type = OptionType::Call;
@@ -62,6 +92,7 @@ int main(int argc, char *argv[]) {
   int numSteps = 100;
   unsigned int seed = 0;
   bool timeGiven = false;
+  bool greekStdError = false;
 
   // Parse command line arguments
   for (int i = 1; i < argc; ++i) {
@@ -121,7 +152,14 @@ int main(int argc, char *argv[]) {
     } else if ((arg == "-s" || arg == "--spot") && i + 1 < argc) {
       spot = std::atof(argv[++i]);
     } else if ((arg == "-T" || arg == "--maturity") && i + 1 < argc) {
-      maturity = std::atof(argv[++i]);
+      if (!timeGiven) {
+        maturity = std::atof(argv[++i]);
+      } else {
+        std::cerr << "Warning: -T/--maturity ignored because -t/--time was "
+                     "already provided"
+                  << std::endl;
+        ++i;
+      }
     } else if ((arg == "-r" || arg == "--rate") && i + 1 < argc) {
       rate = std::atof(argv[++i]);
     } else if ((arg == "-v" || arg == "--vol") && i + 1 < argc) {
@@ -132,6 +170,8 @@ int main(int argc, char *argv[]) {
       numSteps = std::atoi(argv[++i]);
     } else if (arg == "--seed" && i + 1 < argc) {
       seed = static_cast<unsigned int>(std::atoi(argv[++i]));
+    } else if (arg == "--std_error") {
+      greekStdError = true;
     } else {
       std::cerr << "Error: Unknown argument '" << arg << "'" << std::endl;
       printUsage(argv[0]);
@@ -185,7 +225,7 @@ int main(int argc, char *argv[]) {
   std::cout << std::endl;
 
   std::cout << "Computing..." << std::endl;
-  PricingResult result = pricer.compute();
+  PricingResult result = pricer.compute(greekStdError);
 
   std::cout << std::endl;
   std::cout << "Results:" << std::endl;
@@ -193,16 +233,24 @@ int main(int argc, char *argv[]) {
   std::cout << std::fixed << std::setprecision(6);
   std::cout << "  Price:  " << std::setw(12) << result.price << "  (+/- "
             << result.priceStd << ")" << std::endl;
-  std::cout << "  Delta:  " << std::setw(12) << result.delta << "  (+/- "
-            << result.deltaStd << ")" << std::endl;
-  std::cout << "  Gamma:  " << std::setw(12) << result.gamma << "  (+/- "
-            << result.gammaStd << ")" << std::endl;
-  std::cout << "  Theta:  " << std::setw(12) << result.theta << "  (+/- "
-            << result.thetaStd << ")" << std::endl;
-  std::cout << "  Rho:    " << std::setw(12) << result.rho << "  (+/- "
-            << result.rhoStd << ")" << std::endl;
-  std::cout << "  Vega:   " << std::setw(12) << result.vega << "  (+/- "
-            << result.vegaStd << ")" << std::endl;
+  if (greekStdError) {
+    std::cout << "  Delta:  " << std::setw(12) << result.delta << "  (+/- "
+              << result.deltaStd << ")" << std::endl;
+    std::cout << "  Gamma:  " << std::setw(12) << result.gamma << "  (+/- "
+              << result.gammaStd << ")" << std::endl;
+    std::cout << "  Theta:  " << std::setw(12) << result.theta << "  (+/- "
+              << result.thetaStd << ")" << std::endl;
+    std::cout << "  Rho:    " << std::setw(12) << result.rho << "  (+/- "
+              << result.rhoStd << ")" << std::endl;
+    std::cout << "  Vega:   " << std::setw(12) << result.vega << "  (+/- "
+              << result.vegaStd << ")" << std::endl;
+  } else {
+    std::cout << "  Delta:  " << std::setw(12) << result.delta << std::endl;
+    std::cout << "  Gamma:  " << std::setw(12) << result.gamma << std::endl;
+    std::cout << "  Theta:  " << std::setw(12) << result.theta << std::endl;
+    std::cout << "  Rho:    " << std::setw(12) << result.rho << std::endl;
+    std::cout << "  Vega:   " << std::setw(12) << result.vega << std::endl;
+  }
   std::cout << "--------------------------------------" << std::endl;
 
   std::cout << std::endl;

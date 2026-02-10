@@ -1,3 +1,8 @@
+/**
+ * @file OptionParameters.cpp
+ * @brief Implementation of the LookbackOption class.
+ */
+
 #include "../include/OptionParameters.hpp"
 #include <algorithm>
 #include <stdexcept>
