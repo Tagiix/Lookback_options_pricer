@@ -57,6 +57,10 @@ const MonteCarloSimulator &PricerLookbackOption::getSimulator() const {
   return simulator_;
 }
 
+void PricerLookbackOption::setBgkCorrection(bool enabled) {
+  simulator_.setBgkCorrection(enabled);
+}
+
 /**
  * @brief Compute the standard error of the mean from a sample of values.
  * @param values Vector of per-simulation realisations.

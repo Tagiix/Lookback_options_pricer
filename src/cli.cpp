@@ -62,6 +62,12 @@ void printUsage(const char *programName) {
   std::cout //
       << "                        (slower, more memory; off by default)"
       << std::endl;
+  std::cout //
+      << "  --bgk                 Apply Broadie-Glasserman-Kou continuity"
+      << std::endl;
+  std::cout //
+      << "                        correction for discrete monitoring"
+      << std::endl;
   std::cout << "  -h, --help            Show this help message" << std::endl;
   std::cout << std::endl;
   std::cout << "Example:" << std::endl;
@@ -93,6 +99,7 @@ int main(int argc, char *argv[]) {
   unsigned int seed = 0;
   bool timeGiven = false;
   bool greekStdError = false;
+  bool bgkCorrection = false;
 
   // Parse command line arguments
   for (int i = 1; i < argc; ++i) {
@@ -172,6 +179,8 @@ int main(int argc, char *argv[]) {
       seed = static_cast<unsigned int>(std::atoi(argv[++i]));
     } else if (arg == "--std_error") {
       greekStdError = true;
+    } else if (arg == "--bgk") {
+      bgkCorrection = true;
     } else {
       std::cerr << "Error: Unknown argument '" << arg << "'" << std::endl;
       printUsage(argv[0]);
@@ -207,6 +216,9 @@ int main(int argc, char *argv[]) {
   pricer.setOption(type, maturity);
   pricer.setMarketParameters(spot, rate, volatility);
   pricer.setMonteCarloSimulator(numSims, numSteps, seed);
+  if (bgkCorrection) {
+    pricer.setBgkCorrection(true);
+  }
 
   std::cout << "======================================" << std::endl;
   std::cout << "Lookback Option Pricer (Monte Carlo)" << std::endl;
@@ -222,6 +234,8 @@ int main(int argc, char *argv[]) {
   std::cout << "  Volatility:   " << volatility * 100.0 << "%" << std::endl;
   std::cout << "  Simulations:  " << numSims << std::endl;
   std::cout << "  Time Steps:   " << numSteps << std::endl;
+  if (bgkCorrection)
+    std::cout << "  BGK Correction: enabled" << std::endl;
   std::cout << std::endl;
 
   std::cout << "Computing..." << std::endl;

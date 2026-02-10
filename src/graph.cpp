@@ -57,6 +57,10 @@ void printUsage(const char *programName) {
   std::cout << "  --points NUM      Number of spot points (default: 30)"
             << std::endl;
   std::cout << "  --analytic        Also compute analytic solution" << std::endl;
+  std::cout << "  --bgk             Apply Broadie-Glasserman-Kou continuity"
+            << std::endl;
+  std::cout << "                    correction for discrete monitoring"
+            << std::endl;
   std::cout << "  --plot            Generate PNG plots via gnuplot" << std::endl;
   std::cout << "  -o, --output DIR  Output directory (default: .)" << std::endl;
   std::cout << "  -h, --help        Show this help message" << std::endl;
@@ -84,6 +88,7 @@ int main(int argc, char *argv[]) {
   double smax = 200.0;
   int numPoints = 30;
   bool analytic = false;
+  bool bgkCorrection = false;
   bool plot = false;
   std::string outputDir = ".";
 
@@ -122,6 +127,8 @@ int main(int argc, char *argv[]) {
       numPoints = std::atoi(argv[++i]);
     } else if (arg == "--analytic") {
       analytic = true;
+    } else if (arg == "--bgk") {
+      bgkCorrection = true;
     } else if (arg == "--plot") {
       plot = true;
     } else if ((arg == "-o" || arg == "--output") && i + 1 < argc) {
@@ -149,6 +156,8 @@ int main(int argc, char *argv[]) {
             << numPoints << " points" << std::endl;
   if (analytic)
     std::cout << "  Analytic solution: enabled" << std::endl;
+  if (bgkCorrection)
+    std::cout << "  BGK correction: enabled" << std::endl;
   std::cout << std::endl;
 
   // Setup pricer (spot is a placeholder, will be overridden per point)
@@ -156,6 +165,9 @@ int main(int argc, char *argv[]) {
   pricer.setOption(type, maturity);
   pricer.setMarketParameters(smin, rate, volatility);
   pricer.setMonteCarloSimulator(numSims, numSteps, seed);
+  if (bgkCorrection) {
+    pricer.setBgkCorrection(true);
+  }
 
   // Storage
   std::vector<double> spots(numPoints);

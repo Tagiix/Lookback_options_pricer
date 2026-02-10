@@ -153,6 +153,9 @@ public:
   /** @brief Get a const reference to the simulator. */
   const MonteCarloSimulator &getSimulator() const;
 
+  /** @brief Enable or disable the Broadie-Glasserman-Kou continuity correction. */
+  void setBgkCorrection(bool enabled);
+
   /**
    * @brief Price the option and compute all Greeks via Monte Carlo.
    *

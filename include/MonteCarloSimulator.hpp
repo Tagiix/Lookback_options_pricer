@@ -39,6 +39,10 @@ private:
   mutable std::mt19937 rng_;     ///< Mersenne Twister PRNG.
   mutable std::normal_distribution<double>
       normDist_; ///< Standard normal distribution N(0, 1).
+  bool bgkCorrection_ = false; ///< Apply Broadie-Glasserman-Kou continuity correction.
+
+  /// Broadie-Glasserman-Kou constant: \f$\beta_1 = -\zeta(1/2)/\sqrt{2\pi} \approx 0.5826\f$.
+  static constexpr double BGK_BETA1 = 0.5826;
 
 public:
   /**
@@ -66,6 +70,12 @@ public:
 
   /** @brief Re-seed the random number generator. */
   void setRandomSeed(unsigned int seed);
+
+  /** @brief Enable or disable the Broadie-Glasserman-Kou continuity correction. */
+  void setBgkCorrection(bool enabled);
+
+  /** @brief Check whether the BGK correction is enabled. */
+  bool getBgkCorrection() const;
 
   /** @brief Get the number of simulations. */
   unsigned long getNumSimulations() const;

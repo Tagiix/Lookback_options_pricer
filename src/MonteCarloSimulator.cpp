@@ -69,6 +69,14 @@ void MonteCarloSimulator::setRandomSeed(unsigned int seed) {
     rng_.seed(seed);
 }
 
+void MonteCarloSimulator::setBgkCorrection(bool enabled) {
+  bgkCorrection_ = enabled;
+}
+
+bool MonteCarloSimulator::getBgkCorrection() const {
+  return bgkCorrection_;
+}
+
 unsigned long MonteCarloSimulator::getNumSimulations() const {
   return numSimulations_;
 }
@@ -101,6 +109,14 @@ MonteCarloSimulator::simulateSinglePath(double initialSpot, double rate,
     S *= std::exp(drift + sigma * dW);
     S_max = std::max(S_max, S);
     S_min = std::min(S_min, S);
+  }
+
+  // Broadie-Glasserman-Kou continuity correction: adjust the discrete
+  // extrema to approximate continuous monitoring.
+  if (bgkCorrection_) {
+    double correction = std::exp(BGK_BETA1 * volatility * std::sqrt(dt));
+    S_min /= correction; // continuous min is lower than discrete min
+    S_max *= correction; // continuous max is higher than discrete max
   }
 
   results.spotAtMaturity = S;
