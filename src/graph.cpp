@@ -9,6 +9,14 @@
 #include <string>
 #include <vector>
 
+#ifdef _WIN32
+#define POPEN _popen
+#define PCLOSE _pclose
+#else
+#define POPEN popen
+#define PCLOSE pclose
+#endif
+
 void printUsage(const char *programName) {
   std::cout << "Usage: " << programName << " [options]" << std::endl;
   std::cout << std::endl;
@@ -35,7 +43,8 @@ void printUsage(const char *programName) {
             << std::endl;
   std::cout << "  --points NUM      Number of spot points (default: 30)"
             << std::endl;
-  std::cout << "  --analytic        Also plot analytic solution" << std::endl;
+  std::cout << "  --analytic        Also compute analytic solution" << std::endl;
+  std::cout << "  --plot            Generate PNG plots via gnuplot" << std::endl;
   std::cout << "  -o, --output DIR  Output directory (default: .)" << std::endl;
   std::cout << "  -h, --help        Show this help message" << std::endl;
 }
@@ -52,6 +61,7 @@ int main(int argc, char *argv[]) {
   double smax = 200.0;
   int numPoints = 30;
   bool analytic = false;
+  bool plot = false;
   std::string outputDir = ".";
 
   for (int i = 1; i < argc; ++i) {
@@ -89,6 +99,8 @@ int main(int argc, char *argv[]) {
       numPoints = std::atoi(argv[++i]);
     } else if (arg == "--analytic") {
       analytic = true;
+    } else if (arg == "--plot") {
+      plot = true;
     } else if ((arg == "-o" || arg == "--output") && i + 1 < argc) {
       outputDir = argv[++i];
     } else {
@@ -177,23 +189,19 @@ int main(int argc, char *argv[]) {
   csv.close();
   std::cout << "CSV written to " << csvPath << std::endl;
 
+  if (!plot)
+    return 0;
+
   // Generate plots with gnuplot
   std::string pricePng = outputDir + "/price_vs_spot.png";
   std::string deltaPng = outputDir + "/delta_vs_spot.png";
 
-  // Check if gnuplot is available
-  if (std::system("which gnuplot > /dev/null 2>&1") != 0) {
-    std::cout << "gnuplot not found, skipping plot generation." << std::endl;
-    std::cout << "Install gnuplot and re-run, or plot manually from "
-              << csvPath << std::endl;
-    return 0;
-  }
-
   // --- Price graph ---
   {
-    FILE *gp = popen("gnuplot", "w");
+    FILE *gp = POPEN("gnuplot", "w");
     if (!gp) {
-      std::cerr << "Error: failed to launch gnuplot" << std::endl;
+      std::cerr << "Error: gnuplot not found. Install gnuplot or plot "
+                << "manually from " << csvPath << std::endl;
       return 0;
     }
 
@@ -225,15 +233,15 @@ int main(int argc, char *argv[]) {
               "notitle\n",
               csvPath.c_str());
     }
-    pclose(gp);
+    PCLOSE(gp);
     std::cout << "Price graph saved to " << pricePng << std::endl;
   }
 
   // --- Delta graph ---
   {
-    FILE *gp = popen("gnuplot", "w");
+    FILE *gp = POPEN("gnuplot", "w");
     if (!gp) {
-      std::cerr << "Error: failed to launch gnuplot" << std::endl;
+      std::cerr << "Error: gnuplot not found for delta plot." << std::endl;
       return 0;
     }
 
@@ -261,7 +269,7 @@ int main(int argc, char *argv[]) {
               "lc rgb '#0060ad' title 'Monte Carlo'\n",
               csvPath.c_str());
     }
-    pclose(gp);
+    PCLOSE(gp);
     std::cout << "Delta graph saved to " << deltaPng << std::endl;
   }
 
