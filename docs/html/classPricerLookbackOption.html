@@ -141,6 +141,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:afd5a14ead3be7168e44ffeaa5f65bee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const reference to the market parameters.  <br /></td></tr>
 <tr class="memitem:a9c66e8fa953140372bf9d26163ef5d85" id="r_a9c66e8fa953140372bf9d26163ef5d85"><td class="memItemLeft">const <a class="el" href="classMonteCarloSimulator.html">MonteCarloSimulator</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a9c66e8fa953140372bf9d26163ef5d85">getSimulator</a> () const</td></tr>
 <tr class="memdesc:a9c66e8fa953140372bf9d26163ef5d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const reference to the simulator.  <br /></td></tr>
+<tr class="memitem:a0194762e6abc1714cfe6aa5f366749e2" id="r_a0194762e6abc1714cfe6aa5f366749e2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0194762e6abc1714cfe6aa5f366749e2">setBgkCorrection</a> (bool enabled)</td></tr>
+<tr class="memdesc:a0194762e6abc1714cfe6aa5f366749e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable the Broadie-Glasserman-Kou continuity correction.  <br /></td></tr>
 <tr class="memitem:a7516d31bd6b6291c72444d96bbaa21c7" id="r_a7516d31bd6b6291c72444d96bbaa21c7"><td class="memItemLeft"><a class="el" href="structPricingResult.html">PricingResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7516d31bd6b6291c72444d96bbaa21c7">compute</a> (bool withGreekStdErrors=false)</td></tr>
 <tr class="memdesc:a7516d31bd6b6291c72444d96bbaa21c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Price the option and compute all Greeks via Monte Carlo.  <br /></td></tr>
 <tr class="memitem:a1c261d246232987d057de05104de57be" id="r_a1c261d246232987d057de05104de57be"><td class="memItemLeft"><a class="el" href="structPriceAndDelta.html">PriceAndDelta</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1c261d246232987d057de05104de57be">priceAndDeltaForSpot</a> (double spot)</td></tr>
@@ -263,7 +265,7 @@ Static Private Attributes</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="structPricingResult.html" title="Full set of Monte Carlo pricing results including all first-order Greeks and their standard errors.">PricingResult</a> containing price, Greeks, and their standard errors. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Pricer_8cpp_source.html#l00129">129</a> of file <a class="el" href="Pricer_8cpp_source.html">Pricer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pricer_8cpp_source.html#l00133">133</a> of file <a class="el" href="Pricer_8cpp_source.html">Pricer.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -363,7 +365,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The Monte Carlo estimated option price. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Pricer_8cpp_source.html#l00081">81</a> of file <a class="el" href="Pricer_8cpp_source.html">Pricer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pricer_8cpp_source.html#l00085">85</a> of file <a class="el" href="Pricer_8cpp_source.html">Pricer.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -470,7 +472,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structPriceAndDelta.html" title="Lightweight result holding price and delta for a single spot value.">PriceAndDelta</a> containing MC price, its std error, and delta. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="Pricer_8cpp_source.html#l00278">278</a> of file <a class="el" href="Pricer_8cpp_source.html">Pricer.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Pricer_8cpp_source.html#l00282">282</a> of file <a class="el" href="Pricer_8cpp_source.html">Pricer.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -488,6 +490,37 @@ Here is the caller graph for this function:</div>
 <map name="aclassPricerLookbackOption_a1c261d246232987d057de05104de57be_icgraph" id="aclassPricerLookbackOption_a1c261d246232987d057de05104de57be_icgraph">
 <area shape="rect" title="Compute price and delta for a specific spot value." alt="" coords="108,5,278,50"/>
 <area shape="rect" href="graph_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Entry point for the graph generation tool." alt="" coords="5,14,60,42"/>
+<area shape="poly" title=" " alt="" coords="90,29,60,30,60,25,95,27"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0194762e6abc1714cfe6aa5f366749e2" name="a0194762e6abc1714cfe6aa5f366749e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0194762e6abc1714cfe6aa5f366749e2">&#9670;&#160;</a></span>setBgkCorrection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PricerLookbackOption::setBgkCorrection </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>enabled</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable or disable the Broadie-Glasserman-Kou continuity correction. </p>
+
+<p class="definition">Definition at line <a class="el" href="Pricer_8cpp_source.html#l00060">60</a> of file <a class="el" href="Pricer_8cpp_source.html">Pricer.cpp</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="classPricerLookbackOption_a0194762e6abc1714cfe6aa5f366749e2_icgraph.png" border="0" usemap="#aclassPricerLookbackOption_a0194762e6abc1714cfe6aa5f366749e2_icgraph" loading="lazy" alt=""/></div>
+<map name="aclassPricerLookbackOption_a0194762e6abc1714cfe6aa5f366749e2_icgraph" id="aclassPricerLookbackOption_a0194762e6abc1714cfe6aa5f366749e2_icgraph">
+<area shape="rect" title="Enable or disable the Broadie&#45;Glasserman&#45;Kou continuity correction." alt="" coords="108,5,271,50"/>
+<area shape="rect" href="cli_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Entry point for the lookback option pricer CLI." alt="" coords="5,14,60,42"/>
 <area shape="poly" title=" " alt="" coords="90,29,60,30,60,25,95,27"/>
 </map>
 </div>

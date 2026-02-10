@@ -1,26 +1,28 @@
 <map id="main" name="main">
-<area shape="rect" id="Node000001" title="Entry point for the graph generation tool." alt="" coords="5,238,60,266"/>
+<area shape="rect" id="Node000001" title="Entry point for the graph generation tool." alt="" coords="5,268,60,296"/>
 <area shape="rect" id="Node000002" href="$classLookbackAnalyticSolution.html#acb350064c5cdcef6ecec1caa75611ec9" title="Compute Delta ( ) via finite difference." alt="" coords="108,49,297,94"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="35,237,59,177,79,142,106,111,123,100,120,105,110,115,84,145,64,180,40,238"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="34,268,41,236,55,195,76,151,106,111,121,100,119,105,110,115,81,153,60,197,46,238,39,269"/>
 <area shape="rect" id="Node000003" href="$classLookbackAnalyticSolution.html#af1353323577d1f6b8c381e5e2385a573" title="Compute the analytic price of a floating&#45;strike lookback option." alt="" coords="345,75,534,119"/>
-<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="38,236,64,195,83,173,106,155,146,139,201,125,332,106,328,110,202,131,147,144,109,159,87,177,68,198,43,238"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="35,267,59,212,79,181,106,155,145,138,201,124,332,105,328,109,202,129,147,143,109,159,83,184,63,214,40,269"/>
 <area shape="rect" id="Node000007" href="$classPricerLookbackOption.html#a1c261d246232987d057de05104de57be" title="Compute price and delta for a specific spot value." alt="" coords="117,169,288,214"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="59,240,125,217,122,222,62,244"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="48,266,75,245,106,224,120,219,117,223,109,229,78,249,52,269"/>
 <area shape="rect" id="Node000009" href="$graph_8cpp.html#afab1557244eb6ab3cb446f0e7cad8905" title="Print usage / help message to stdout." alt="" coords="156,238,248,266"/>
-<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="59,249,142,250,139,254,61,254"/>
-<area shape="rect" id="Node000010" href="$classPricerLookbackOption.html#afb93a0b20b06b05328510f2212eaeb8b" title="Set market parameters from an existing object." alt="" coords="118,289,286,334"/>
-<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="60,259,125,282,121,285,61,264"/>
-<area shape="rect" id="Node000011" href="$classPricerLookbackOption.html#adb405bdc3eab337bceb6189d1a9bbbc5" title="Configure the Monte Carlo simulator." alt="" coords="109,359,296,403"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="42,263,70,304,88,325,109,344,117,350,111,351,106,348,84,329,65,307,41,269"/>
-<area shape="rect" id="Node000012" href="$classPricerLookbackOption.html#a53d66bb362e906f483b4f6fafcebf27d" title="Set the option from an existing LookbackOption object." alt="" coords="121,428,284,473"/>
-<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="37,263,46,296,60,336,81,377,110,414,114,419,109,419,106,418,76,380,55,338,41,298,36,269"/>
+<area shape="poly" id="edge9_Node000001_Node000009" title=" " alt="" coords="59,275,142,261,139,265,62,280"/>
+<area shape="rect" id="Node000010" href="$classPricerLookbackOption.html#a0194762e6abc1714cfe6aa5f366749e2" title="Enable or disable the Broadie&#45;Glasserman&#45;Kou continuity correction." alt="" coords="121,289,284,334"/>
+<area shape="poly" id="edge10_Node000001_Node000010" title=" " alt="" coords="59,285,107,293,103,297,61,289"/>
+<area shape="rect" id="Node000011" href="$classPricerLookbackOption.html#afb93a0b20b06b05328510f2212eaeb8b" title="Set market parameters from an existing object." alt="" coords="118,359,286,403"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="47,294,76,320,109,344,120,351,115,352,106,349,72,324,48,299"/>
+<area shape="rect" id="Node000012" href="$classPricerLookbackOption.html#adb405bdc3eab337bceb6189d1a9bbbc5" title="Configure the Monte Carlo simulator." alt="" coords="109,428,296,473"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="38,294,64,353,84,385,109,414,115,419,110,420,106,418,80,388,59,355,38,299"/>
+<area shape="rect" id="Node000013" href="$classPricerLookbackOption.html#a53d66bb362e906f483b4f6fafcebf27d" title="Set the option from an existing LookbackOption object." alt="" coords="121,497,284,542"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="35,294,43,333,55,383,76,437,91,461,110,483,113,488,108,488,106,487,87,464,72,439,50,385,38,334,35,299"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="296,79,332,84,327,86,298,84"/>
 <area shape="rect" id="Node000004" href="$classLookbackAnalyticSolution.html#aa258352585231529a95d4062bfd2665e" title="Compute &#160;." alt="" coords="582,5,772,50"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="517,72,586,54,581,56,520,77"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="517,72,586,54,581,56,520,76"/>
 <area shape="rect" id="Node000005" href="$classLookbackAnalyticSolution.html#ad1a901bb976ec30870a2ae1ff62f7989" title="Compute &#160;." alt="" coords="582,75,772,119"/>
 <area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="534,94,569,96,564,98,536,100"/>
 <area shape="rect" id="Node000006" href="$classLookbackAnalyticSolution.html#abc1877c1557ae9737d8253ae44f2682a" title="Standard normal cumulative distribution function ." alt="" coords="582,144,772,189"/>
 <area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="518,117,586,138,581,140,519,123"/>
 <area shape="rect" id="Node000008" href="$classPricerLookbackOption.html#a9cf33b4549cb39fab0b354a090418e9d" title="Compute the discounted Monte Carlo price for given parameters." alt="" coords="358,169,521,214"/>
-<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="287,189,345,191,340,193,289,194"/>
+<area shape="poly" id="edge8_Node000007_Node000008" title=" " alt="" coords="287,189,345,190,340,193,289,194"/>
 </map>

@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['normdist_5f_0',['normDist_',['../classMonteCarloSimulator.html#afa9adb7113a266f2ebf8041725412318',1,'MonteCarloSimulator']]],
-  ['numsimulations_5f_1',['numSimulations_',['../classMonteCarloSimulator.html#a1d0da7e54a3a78d5319db74e1ab25f87',1,'MonteCarloSimulator']]],
-  ['numtimesteps_5f_2',['numTimeSteps_',['../classMonteCarloSimulator.html#ab0d7f19e6f11f79723511139d45306e0',1,'MonteCarloSimulator']]]
+  ['marketparameters_5f_0',['MarketParameters_',['../classPricerLookbackOption.html#af587439d9748927198755f283526e3fa',1,'PricerLookbackOption']]],
+  ['maturity_5f_1',['maturity_',['../classLookbackOption.html#a25fe2a9fd04bf3c35201d734578126a6',1,'LookbackOption']]],
+  ['maximumspot_2',['maximumSpot',['../structSpotResults.html#a4aeda1510b590d29afcb55eddbcb3963',1,'SpotResults']]],
+  ['minimumspot_3',['minimumSpot',['../structSpotResults.html#a761849bda7a610cacd32350fe883fb42',1,'SpotResults']]]
 ];

@@ -8,6 +8,7 @@ var classPricerLookbackOption =
     [ "getOption", "classPricerLookbackOption.html#a525a0947b1241d5eb60c94987871a1c4", null ],
     [ "getSimulator", "classPricerLookbackOption.html#a9c66e8fa953140372bf9d26163ef5d85", null ],
     [ "priceAndDeltaForSpot", "classPricerLookbackOption.html#a1c261d246232987d057de05104de57be", null ],
+    [ "setBgkCorrection", "classPricerLookbackOption.html#a0194762e6abc1714cfe6aa5f366749e2", null ],
     [ "setMarketParameters", "classPricerLookbackOption.html#acc25749481fec4642487934c0b5647ca", null ],
     [ "setMarketParameters", "classPricerLookbackOption.html#afb93a0b20b06b05328510f2212eaeb8b", null ],
     [ "setMonteCarloSimulator", "classPricerLookbackOption.html#adb405bdc3eab337bceb6189d1a9bbbc5", null ],

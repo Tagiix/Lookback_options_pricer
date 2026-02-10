@@ -34,6 +34,7 @@ var menudata={children:[
 {text:"Class Index",url:"classes.html"},
 {text:"Class Members",url:"functions.html",children:[
 {text:"All",url:"functions.html",children:[
+{text:"b",url:"functions.html#index_b"},
 {text:"c",url:"functions.html#index_c"},
 {text:"d",url:"functions.html#index_d"},
 {text:"g",url:"functions.html#index_g"},
@@ -61,6 +62,7 @@ var menudata={children:[
 {text:"v",url:"functions_func.html#index_v"},
 {text:"~",url:"functions_func.html#index__7E"}]},
 {text:"Variables",url:"functions_vars.html",children:[
+{text:"b",url:"functions_vars.html#index_b"},
 {text:"d",url:"functions_vars.html#index_d"},
 {text:"g",url:"functions_vars.html#index_g"},
 {text:"m",url:"functions_vars.html#index_m"},

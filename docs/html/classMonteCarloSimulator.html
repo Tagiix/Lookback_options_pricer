@@ -117,6 +117,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a358a4705b72c86334291aa1694b0496a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the number of time steps per path.  <br /></td></tr>
 <tr class="memitem:aaa1eed3906e7e84f1c519b39aaf41952" id="r_aaa1eed3906e7e84f1c519b39aaf41952"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaa1eed3906e7e84f1c519b39aaf41952">setRandomSeed</a> (unsigned int seed)</td></tr>
 <tr class="memdesc:aaa1eed3906e7e84f1c519b39aaf41952"><td class="mdescLeft">&#160;</td><td class="mdescRight">Re-seed the random number generator.  <br /></td></tr>
+<tr class="memitem:ae0010546e8a6ceabd8034d3f86b1ef2b" id="r_ae0010546e8a6ceabd8034d3f86b1ef2b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae0010546e8a6ceabd8034d3f86b1ef2b">setBgkCorrection</a> (bool enabled)</td></tr>
+<tr class="memdesc:ae0010546e8a6ceabd8034d3f86b1ef2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable the Broadie-Glasserman-Kou continuity correction.  <br /></td></tr>
+<tr class="memitem:a934eb7be28485622cf92932c358d2321" id="r_a934eb7be28485622cf92932c358d2321"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a934eb7be28485622cf92932c358d2321">getBgkCorrection</a> () const</td></tr>
+<tr class="memdesc:a934eb7be28485622cf92932c358d2321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether the BGK correction is enabled.  <br /></td></tr>
 <tr class="memitem:aea2ac7a5a786645f09783b336a9730f3" id="r_aea2ac7a5a786645f09783b336a9730f3"><td class="memItemLeft">unsigned long&#160;</td><td class="memItemRight"><a class="el" href="#aea2ac7a5a786645f09783b336a9730f3">getNumSimulations</a> () const</td></tr>
 <tr class="memdesc:aea2ac7a5a786645f09783b336a9730f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of simulations.  <br /></td></tr>
 <tr class="memitem:a1a273021c403c4cdeefb8439c144ea23" id="r_a1a273021c403c4cdeefb8439c144ea23"><td class="memItemLeft">unsigned long&#160;</td><td class="memItemRight"><a class="el" href="#a1a273021c403c4cdeefb8439c144ea23">getNumTimeSteps</a> () const</td></tr>
@@ -140,6 +144,13 @@ Private Attributes</h2></td></tr>
 <tr class="memdesc:a13afcd2c788d1f72ec28f8214cde94b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mersenne Twister PRNG.  <br /></td></tr>
 <tr class="memitem:afa9adb7113a266f2ebf8041725412318" id="r_afa9adb7113a266f2ebf8041725412318"><td class="memItemLeft">std::normal_distribution&lt; double &gt;&#160;</td><td class="memItemRight"><a class="el" href="#afa9adb7113a266f2ebf8041725412318">normDist_</a></td></tr>
 <tr class="memdesc:afa9adb7113a266f2ebf8041725412318"><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard normal distribution N(0, 1).  <br /></td></tr>
+<tr class="memitem:aa281b6fa633f7f88d225b666af497932" id="r_aa281b6fa633f7f88d225b666af497932"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa281b6fa633f7f88d225b666af497932">bgkCorrection_</a> = false</td></tr>
+<tr class="memdesc:aa281b6fa633f7f88d225b666af497932"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply Broadie-Glasserman-Kou continuity correction.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-attribs" class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:aefb43eec15a6ffb80df5677ac548a877" id="r_aefb43eec15a6ffb80df5677ac548a877"><td class="memItemLeft">static constexpr double&#160;</td><td class="memItemRight"><a class="el" href="#aefb43eec15a6ffb80df5677ac548a877">BGK_BETA1</a> = 0.5826</td></tr>
+<tr class="memdesc:aefb43eec15a6ffb80df5677ac548a877"><td class="mdescLeft">&#160;</td><td class="mdescRight">Broadie-Glasserman-Kou constant: \(\beta_1 = -\zeta(1/2)/\sqrt{2\pi} \approx 0.5826\).  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Generates spot-price paths under Geometric Brownian Motion (GBM). </p>
@@ -241,7 +252,7 @@ Here is the call graph for this function:</div>
 <p>Draw a single sample from the standard normal distribution. </p>
 <dl class="section return"><dt>Returns</dt><dd>A realisation of \(Z \sim \mathcal{N}(0,1)\). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8cpp_source.html#l00080">80</a> of file <a class="el" href="MonteCarloSimulator_8cpp_source.html">MonteCarloSimulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8cpp_source.html#l00088">88</a> of file <a class="el" href="MonteCarloSimulator_8cpp_source.html">MonteCarloSimulator.cpp</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -254,6 +265,27 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="195,28,165,30,165,25,200,27"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a934eb7be28485622cf92932c358d2321" name="a934eb7be28485622cf92932c358d2321"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a934eb7be28485622cf92932c358d2321">&#9670;&#160;</a></span>getBgkCorrection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MonteCarloSimulator::getBgkCorrection </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check whether the BGK correction is enabled. </p>
+
+<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8cpp_source.html#l00076">76</a> of file <a class="el" href="MonteCarloSimulator_8cpp_source.html">MonteCarloSimulator.cpp</a>.</p>
 
 </div>
 </div>
@@ -274,7 +306,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the number of simulations. </p>
 
-<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8cpp_source.html#l00072">72</a> of file <a class="el" href="MonteCarloSimulator_8cpp_source.html">MonteCarloSimulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8cpp_source.html#l00080">80</a> of file <a class="el" href="MonteCarloSimulator_8cpp_source.html">MonteCarloSimulator.cpp</a>.</p>
 
 </div>
 </div>
@@ -295,7 +327,7 @@ Here is the caller graph for this function:</div>
 
 <p>Get the number of time steps per path. </p>
 
-<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8cpp_source.html#l00076">76</a> of file <a class="el" href="MonteCarloSimulator_8cpp_source.html">MonteCarloSimulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8cpp_source.html#l00084">84</a> of file <a class="el" href="MonteCarloSimulator_8cpp_source.html">MonteCarloSimulator.cpp</a>.</p>
 
 </div>
 </div>
@@ -317,6 +349,27 @@ Here is the caller graph for this function:</div>
 <p>Get a seed value derived from the current clock (snapshot). </p>
 
 <p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8cpp_source.html#l00055">55</a> of file <a class="el" href="MonteCarloSimulator_8cpp_source.html">MonteCarloSimulator.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae0010546e8a6ceabd8034d3f86b1ef2b" name="ae0010546e8a6ceabd8034d3f86b1ef2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0010546e8a6ceabd8034d3f86b1ef2b">&#9670;&#160;</a></span>setBgkCorrection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MonteCarloSimulator::setBgkCorrection </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>enabled</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable or disable the Broadie-Glasserman-Kou continuity correction. </p>
+
+<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8cpp_source.html#l00072">72</a> of file <a class="el" href="MonteCarloSimulator_8cpp_source.html">MonteCarloSimulator.cpp</a>.</p>
 
 </div>
 </div>
@@ -424,7 +477,7 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Vector of <a class="el" href="structSpotResults.html" title="Holds the outcome of a single simulated spot-price path.">SpotResults</a>, one per simulation. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8cpp_source.html#l00114">114</a> of file <a class="el" href="MonteCarloSimulator_8cpp_source.html">MonteCarloSimulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8cpp_source.html#l00130">130</a> of file <a class="el" href="MonteCarloSimulator_8cpp_source.html">MonteCarloSimulator.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -481,7 +534,7 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="structSpotResults.html" title="Holds the outcome of a single simulated spot-price path.">SpotResults</a> containing spot at maturity, path max, and path min. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8cpp_source.html#l00085">85</a> of file <a class="el" href="MonteCarloSimulator_8cpp_source.html">MonteCarloSimulator.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8cpp_source.html#l00093">93</a> of file <a class="el" href="MonteCarloSimulator_8cpp_source.html">MonteCarloSimulator.cpp</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -506,6 +559,58 @@ Here is the caller graph for this function:</div>
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="aefb43eec15a6ffb80df5677ac548a877" name="aefb43eec15a6ffb80df5677ac548a877"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefb43eec15a6ffb80df5677ac548a877">&#9670;&#160;</a></span>BGK_BETA1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double MonteCarloSimulator::BGK_BETA1 = 0.5826</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Broadie-Glasserman-Kou constant: \(\beta_1 = -\zeta(1/2)/\sqrt{2\pi} \approx 0.5826\). </p>
+
+<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8hpp_source.html#l00045">45</a> of file <a class="el" href="MonteCarloSimulator_8hpp_source.html">MonteCarloSimulator.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aa281b6fa633f7f88d225b666af497932" name="aa281b6fa633f7f88d225b666af497932"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa281b6fa633f7f88d225b666af497932">&#9670;&#160;</a></span>bgkCorrection_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MonteCarloSimulator::bgkCorrection_ = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Apply Broadie-Glasserman-Kou continuity correction. </p>
+
+<p class="definition">Definition at line <a class="el" href="MonteCarloSimulator_8hpp_source.html#l00042">42</a> of file <a class="el" href="MonteCarloSimulator_8hpp_source.html">MonteCarloSimulator.hpp</a>.</p>
+
+</div>
+</div>
 <a id="afa9adb7113a266f2ebf8041725412318" name="afa9adb7113a266f2ebf8041725412318"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa9adb7113a266f2ebf8041725412318">&#9670;&#160;</a></span>normDist_</h2>
 

@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['option_5f_0',['option_',['../classPricerLookbackOption.html#aa875c5ae26b24dc7cc30ce0e92f0fe44',1,'PricerLookbackOption']]],
-  ['optionparameters_2ecpp_1',['OptionParameters.cpp',['../OptionParameters_8cpp.html',1,'']]],
-  ['optionparameters_2ehpp_2',['OptionParameters.hpp',['../OptionParameters_8hpp.html',1,'']]],
-  ['optiontype_3',['OptionType',['../OptionParameters_8hpp.html#a976bded296a67e09242af85291a639d6',1,'OptionParameters.hpp']]],
-  ['optiontype_5f_4',['optionType_',['../classLookbackOption.html#a5675502af396fbfc140e70d395901a90',1,'LookbackOption']]]
+  ['normalcdf_0',['normalCDF',['../classLookbackAnalyticSolution.html#abc1877c1557ae9737d8253ae44f2682a',1,'LookbackAnalyticSolution']]],
+  ['normalpdf_1',['normalPDF',['../classLookbackAnalyticSolution.html#a1441ff00fdd6d4bf560e7afbc3cc6d8e',1,'LookbackAnalyticSolution']]],
+  ['normdist_5f_2',['normDist_',['../classMonteCarloSimulator.html#afa9adb7113a266f2ebf8041725412318',1,'MonteCarloSimulator']]],
+  ['numsimulations_5f_3',['numSimulations_',['../classMonteCarloSimulator.html#a1d0da7e54a3a78d5319db74e1ab25f87',1,'MonteCarloSimulator']]],
+  ['numtimesteps_5f_4',['numTimeSteps_',['../classMonteCarloSimulator.html#ab0d7f19e6f11f79723511139d45306e0',1,'MonteCarloSimulator']]]
 ];

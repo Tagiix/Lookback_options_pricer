@@ -1,19 +1,7 @@
 var searchData=
 [
-  ['gamma_0',['gamma',['../structPricingResult.html#a140390c3b4106c6139ab53a1daf4ceab',1,'PricingResult::gamma'],['../classLookbackAnalyticSolution.html#a14cf1ce3256c296cf56296f535563291',1,'LookbackAnalyticSolution::gamma()']]],
-  ['gammastd_1',['gammaStd',['../structPricingResult.html#a1d180a7f84d4da443d98ffd2bc38fe57',1,'PricingResult']]],
-  ['generate_2',['generate',['../namespaceRandom.html#a00531c42906741611a38c489e8723280',1,'Random']]],
-  ['generatestandardnormal_3',['generateStandardNormal',['../classMonteCarloSimulator.html#afaefc22da03be79bfc1eeaad283753cb',1,'MonteCarloSimulator']]],
-  ['getmarketparameters_4',['getMarketParameters',['../classPricerLookbackOption.html#afd5a14ead3be7168e44ffeaa5f65bee4',1,'PricerLookbackOption']]],
-  ['getmaturity_5',['getMaturity',['../classLookbackOption.html#a5ae9ef7b080f1874fffb02936ffbed9c',1,'LookbackOption']]],
-  ['getnumsimulations_6',['getNumSimulations',['../classMonteCarloSimulator.html#aea2ac7a5a786645f09783b336a9730f3',1,'MonteCarloSimulator']]],
-  ['getnumtimesteps_7',['getNumTimeSteps',['../classMonteCarloSimulator.html#a1a273021c403c4cdeefb8439c144ea23',1,'MonteCarloSimulator']]],
-  ['getoption_8',['getOption',['../classPricerLookbackOption.html#a525a0947b1241d5eb60c94987871a1c4',1,'PricerLookbackOption']]],
-  ['getrandomseed_9',['getRandomSeed',['../classMonteCarloSimulator.html#ac7da9cd4f1f110d4cfaeebd688ceafb4',1,'MonteCarloSimulator']]],
-  ['getsimulator_10',['getSimulator',['../classPricerLookbackOption.html#a9c66e8fa953140372bf9d26163ef5d85',1,'PricerLookbackOption']]],
-  ['getspot_11',['getSpot',['../classMarketParameters.html#a1009b8dd8eb2486d089ab9864e27fba7',1,'MarketParameters']]],
-  ['gettype_12',['getType',['../classLookbackOption.html#a8ac0f6e9fb3c7b4f7d4aaa6d041d84fb',1,'LookbackOption']]],
-  ['getvolatility_13',['getVolatility',['../classMarketParameters.html#a94ac3f39e1eea7fa53cd7beccb3b014e',1,'MarketParameters']]],
-  ['graph_2ecpp_14',['graph.cpp',['../graph_8cpp.html',1,'']]],
-  ['gtetriskfreerate_15',['gtetRiskFreeRate',['../classMarketParameters.html#aa47e75059109b45da1093b5c300161c8',1,'MarketParameters']]]
+  ['delta_0',['delta',['../structPriceAndDelta.html#ad3f0260af871c184dec95f77ed1d1929',1,'PriceAndDelta::delta'],['../structPricingResult.html#aeec33cebf2ebeff444d6e051cad37828',1,'PricingResult::delta'],['../classLookbackAnalyticSolution.html#acb350064c5cdcef6ecec1caa75611ec9',1,'LookbackAnalyticSolution::delta(OptionType option, double S0, double T, double sigma, double r)']]],
+  ['delta_5fminus_1',['delta_minus',['../classLookbackAnalyticSolution.html#aa258352585231529a95d4062bfd2665e',1,'LookbackAnalyticSolution']]],
+  ['delta_5fplus_2',['delta_plus',['../classLookbackAnalyticSolution.html#ad1a901bb976ec30870a2ae1ff62f7989',1,'LookbackAnalyticSolution']]],
+  ['deltastd_3',['deltaStd',['../structPricingResult.html#a1936dfa53ab421e789015a98ce3c3b93',1,'PricingResult']]]
 ];

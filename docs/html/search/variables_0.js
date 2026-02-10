@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['delta_0',['delta',['../structPriceAndDelta.html#ad3f0260af871c184dec95f77ed1d1929',1,'PriceAndDelta::delta'],['../structPricingResult.html#aeec33cebf2ebeff444d6e051cad37828',1,'PricingResult::delta']]],
-  ['deltastd_1',['deltaStd',['../structPricingResult.html#a1936dfa53ab421e789015a98ce3c3b93',1,'PricingResult']]]
+  ['bgk_5fbeta1_0',['BGK_BETA1',['../classMonteCarloSimulator.html#aefb43eec15a6ffb80df5677ac548a877',1,'MonteCarloSimulator']]],
+  ['bgkcorrection_5f_1',['bgkCorrection_',['../classMonteCarloSimulator.html#aa281b6fa633f7f88d225b666af497932',1,'MonteCarloSimulator']]]
 ];
