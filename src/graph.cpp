@@ -19,7 +19,7 @@
 #include <vector>
 
 #ifdef _WIN32
-#define POPEN _popen  ///< Platform-agnostic popen alias (Windows).
+#define POPEN _popen   ///< Platform-agnostic popen alias (Windows).
 #define PCLOSE _pclose ///< Platform-agnostic pclose alias (Windows).
 #else
 #define POPEN popen   ///< Platform-agnostic popen alias (POSIX).
@@ -44,7 +44,7 @@ void printUsage(const char *programName) {
   std::cout << "  -r, --rate RATE   Risk-free interest rate (default: 0.05)"
             << std::endl;
   std::cout << "  -v, --vol SIGMA   Volatility (default: 0.20)" << std::endl;
-  std::cout << "  -n, --sims NUM    Number of MC simulations (default: 100000)"
+  std::cout << "  -n, --sims NUM    Number of MC simulations (default: 10000)"
             << std::endl;
   std::cout << "  -m, --steps NUM   Number of time steps (default: 100)"
             << std::endl;
@@ -56,12 +56,14 @@ void printUsage(const char *programName) {
             << std::endl;
   std::cout << "  --points NUM      Number of spot points (default: 30)"
             << std::endl;
-  std::cout << "  --analytic        Also compute analytic solution" << std::endl;
+  std::cout << "  --analytic        Also compute analytic solution"
+            << std::endl;
   std::cout << "  --bgk             Apply Broadie-Glasserman-Kou continuity"
             << std::endl;
   std::cout << "                    correction for discrete monitoring"
             << std::endl;
-  std::cout << "  --plot            Generate PNG plots via gnuplot" << std::endl;
+  std::cout << "  --plot            Generate PNG plots via gnuplot"
+            << std::endl;
   std::cout << "  -o, --output DIR  Output directory (default: .)" << std::endl;
   std::cout << "  -h, --help        Show this help message" << std::endl;
 }
@@ -81,7 +83,7 @@ int main(int argc, char *argv[]) {
   double maturity = 1.0;
   double rate = 0.05;
   double volatility = 0.20;
-  unsigned long numSims = 100000;
+  unsigned long numSims = 10000;
   int numSteps = 100;
   unsigned int seed = 0;
   double smin = 50.0;
@@ -192,10 +194,10 @@ int main(int argc, char *argv[]) {
     mcDeltas[i] = pd.delta;
 
     if (analytic) {
-      anPrices[i] = LookbackAnalyticSolution::price(type, s, maturity,
-                                                     volatility, rate);
-      anDeltas[i] = LookbackAnalyticSolution::delta(type, s, maturity,
-                                                     volatility, rate);
+      anPrices[i] =
+          LookbackAnalyticSolution::price(type, s, maturity, volatility, rate);
+      anDeltas[i] =
+          LookbackAnalyticSolution::delta(type, s, maturity, volatility, rate);
     }
   }
   std::cout << std::endl << "Done." << std::endl;
@@ -240,10 +242,12 @@ int main(int argc, char *argv[]) {
       return 0;
     }
 
-    fprintf(gp, "set terminal pngcairo size 900,600 enhanced font 'Arial,12'\n");
+    fprintf(gp,
+            "set terminal pngcairo size 900,600 enhanced font 'Arial,12'\n");
     fprintf(gp, "set output '%s'\n", pricePng.c_str());
-    fprintf(gp, "set title '%s Lookback Option Price P(S, T_0)  "
-                "(T=%.2f, r=%.2f, {/Symbol s}=%.2f)'\n",
+    fprintf(gp,
+            "set title '%s Lookback Option Price P(S, T_0)  "
+            "(T=%.2f, r=%.2f, {/Symbol s}=%.2f)'\n",
             typeStr.c_str(), maturity, rate, volatility);
     fprintf(gp, "set xlabel 'Spot Price S'\n");
     fprintf(gp, "set ylabel 'Option Price P'\n");
@@ -280,10 +284,12 @@ int main(int argc, char *argv[]) {
       return 0;
     }
 
-    fprintf(gp, "set terminal pngcairo size 900,600 enhanced font 'Arial,12'\n");
+    fprintf(gp,
+            "set terminal pngcairo size 900,600 enhanced font 'Arial,12'\n");
     fprintf(gp, "set output '%s'\n", deltaPng.c_str());
-    fprintf(gp, "set title '%s Lookback Option Delta {/Symbol D}(S, T_0)  "
-                "(T=%.2f, r=%.2f, {/Symbol s}=%.2f)'\n",
+    fprintf(gp,
+            "set title '%s Lookback Option Delta {/Symbol D}(S, T_0)  "
+            "(T=%.2f, r=%.2f, {/Symbol s}=%.2f)'\n",
             typeStr.c_str(), maturity, rate, volatility);
     fprintf(gp, "set xlabel 'Spot Price S'\n");
     fprintf(gp, "set ylabel 'Delta {/Symbol D}'\n");
