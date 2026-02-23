@@ -78,5 +78,5 @@ mfBGK.pdf              Reference — Broadie-Glasserman-Kou correction
 
 ## References
 
-- Goldman, Sosin, Gatto (1979) — *Path Dependent Options: Buy at the Low, Sell at the High*
+- Privault, N. (2023) — *Introduction to Stochastic Finance with Market Examples*, 2nd ed., Chapman & Hall
 - Broadie, Glasserman, Kou (1999) — *Connecting Discrete and Continuous Path-Dependent Options*
